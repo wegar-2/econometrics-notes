@@ -1,0 +1,89 @@
+\documentclass[12pt]{article}
+
+%%\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+
+
+\begin{document}
+
+\title{Econometric Notes I: Simple Linear Regression}
+\author{Artur Wegrzyn}
+\maketitle
+
+\abstract{Simple linear regression is considered for deterministic independent variable. OLS estimators are derived and their select properties are discussed. }
+
+\tableofcontents
+
+
+\section{Introduction}
+
+Consider the standard model:
+\begin{equation}
+Y_t = a x_t + b +\epsilon_t
+\end{equation}
+where available sample is indexed by $t \in {1, 2, \dots, T}$. It is assumed values of independent variable $x$ are assumed to be \textbf{deterministic} i.e. they are imposed by the designer of the experiment.
+
+The assumptions about the error term are:
+\begin{equation}
+\epsilon_t ~ i.i.d. N(0, \sigma^2)
+\end{equation}
+Let $\{(x_1, y_1), (x_2, y_2), \dots, (x_T, y_T)\}$ be that sample/dataset s.t.:
+\begin{equation}
+y_t = a x_t + b + e_t
+\end{equation}
+
+Minimization of the residual sum of squares:
+\begin{equation}
+RSS = \sum_{t=1}^{T} e_t^2 = \sum_{t=1}^{T}(y_t - a x_t - b)^2
+\end{equation}
+
+\section{Derivation of OLS Estimators}
+
+\subsection{Estimators $\hat{a}$ and $\hat{b}$}
+Partial derivatives of $RSS$:
+\begin{eqnarray}
+\frac{\partial RSS}{\partial a} &=& -2 \sum_{t=1}^{T}x_t (y_t - ax_t -b) \\
+\frac{\partial RSS}{\partial b} &=& -2 \sum_{t=1}^{T}x_t (y_t - ax_t -b)
+\end{eqnarray}
+
+Imposing first-order conditions yields and switching to hats (OLS estimators satisfy the FOCs):
+
+\begin{eqnarray}
+\sum_{t=1}^{T}x_t (y_t - \hat{a} x_t - \hat{b}) &=&  0 \\
+\sum_{t=1}^{T} (y_t - \hat{a} x_t - \hat{b}) &=& 0
+\end{eqnarray}
+
+Note that the second of these conditions can be written briefly as:
+\begin{equation}
+\overline{y} = \hat{a} \overline{x} + \hat{b}
+\end{equation}
+
+A little bit of algebra yields:
+\begin{equation}
+\hat{a} = \frac{\frac{1}{n}\sum_{t=1}^{T}x_t y_t - \overline{x} \overline{y}}
+{\frac{1}{n}\sum_{t=1}^{T}x_t^2 - \overline{x}^2}
+\end{equation}
+
+\subsection{Estimator of $\hat{\sigma}^2$}
+
+
+\section{Select Properties of Estimators}
+
+\subsection{Unbiasedness of $\hat{a}$}
+
+\subsection{Unbiasedness of $\hat{b}$}
+
+\subsection{Variance of $\hat{a}$}
+\subsection{Variance of $\hat{a}$}
+
+
+\section{References}
+The best reference on all things time-series is obviously \cite{hamilton_tsa}. 
+
+
+\bibliography{tsa_bibliography}
+\bibliographystyle{ieeetr}
+
+\end{document}
