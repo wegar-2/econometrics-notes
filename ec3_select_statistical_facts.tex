@@ -1,0 +1,68 @@
+\documentclass[12pt]{article}
+
+%%\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+
+
+\begin{document}
+
+\title{Econometrics Notes III: Some Statistical Facts}
+\author{Artur Wegrzyn}
+\maketitle
+
+\abstract{This note presents derivations of some basic statistical facts that are invoked elsewhere in the notes. }
+
+\tableofcontents
+
+\section{Notation}
+Sample $X_1, X_2, \dots, X_n$ is drawn independently from a distribution that
+has finite mean and variance, i.e.:
+\begin{eqnarray*}
+X_i &\sim & i.i.d. \\
+E(X_i) &=& E(X) = \mu < \infty \\
+Var(X_i) &=& Var(X) < \infty
+\end{eqnarray*}
+
+
+\section{Biased Sample Variance Rewritten}
+Given $S^2$ defined as:
+\begin{equation}
+\label{biased_variance_estimator}
+S^2 = \frac{1}{n}\sum_{i=1}^{n} (X_i - \overline{X})^2
+\end{equation}
+
+Note that:
+\begin{eqnarray*}
+\frac{1}{n}\sum_{i=1}^{n} (X_i - \overline{X})^2 &=& 
+\frac{1}{n}\sum_{i=1}^{n}\left( 
+(X_i - \mu) - (\overline{X} - \mu)
+\right)^2 \\
+&=& \frac{1}{n} \sum_{i=1}^{n}(X_i - \mu)^2 + 
+\frac{1}{n} \sum_{i=1}^{n}(\overline{X} - \mu)^2 \\
+&& - 2 (\overline{X} - \mu) \frac{1}{n} \sum_{i=1}^{n} (X_i - \mu) \\
+&=& \frac{1}{n} \sum_{i=1}^{n}(X_i - \mu) + (\overline{X} - \mu)^2 
+- 2 (\overline{X} - \mu)^2 + \\ && (\overline{X} - \mu)^2 \\
+&=& \frac{1}{n} \sum_{i=1}^{n} (X_i - \mu)^2 - (\overline{X} - \mu)^2
+\end{eqnarray*}
+I.e.:
+\begin{equation}
+\label{biased_variance_estimator_decomposition}
+\frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2 = 
+\frac{1}{n} \sum_{i=1}^{n} (X_i - \mu)^2 - (\overline{X} - \mu)^2
+\end{equation}
+
+
+\section{Biased and Unbiased Variance Estimator}
+Consider the expected value of the $S^2$ - expectation is applied to 
+\ref{biased_variance_estimator_decomposition}:
+\begin{equation*}
+E(S^2) = 
+\end{equation*}
+
+
+\bibliography{tsa_bibliography}
+\bibliographystyle{ieeetr}
+
+\end{document}
