@@ -58,8 +58,15 @@ I.e.:
 Consider the expected value of the $S^2$ - expectation is applied to 
 \ref{biased_variance_estimator_decomposition}:
 \begin{equation*}
-E(S^2) = 
+E(S^2) = Var(X) - \frac{1}{n} Var(X) = \frac{n-1}{n} Var(X)
 \end{equation*}
+Hence: $S^2$ is a biased estimator of variance.\\
+Unbiased estimator of the variance is therefore given by:
+\begin{equation*}
+\tilde{S}^2 = \frac{n}{n-1} S^2 = 
+\frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2
+\end{equation*}
+
 
 
 \bibliography{tsa_bibliography}
