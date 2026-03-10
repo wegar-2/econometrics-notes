@@ -16,6 +16,8 @@
 
 \tableofcontents
 
+
+
 \section{Notation}
 Sample $X_1, X_2, \dots, X_n$ is drawn independently from a distribution that
 has finite mean and variance, i.e.:
@@ -26,13 +28,13 @@ Var(X_i) &=& Var(X) < \infty
 \end{eqnarray*}
 
 
+
 \section{Biased Sample Variance Rewritten}
 Given $S^2$ defined as:
 \begin{equation}
 \label{biased_variance_estimator}
 S^2 = \frac{1}{n}\sum_{i=1}^{n} (X_i - \overline{X})^2
 \end{equation}
-
 Note that:
 \begin{eqnarray*}
 \frac{1}{n}\sum_{i=1}^{n} (X_i - \overline{X})^2 &=& 
@@ -54,6 +56,7 @@ I.e.:
 \end{equation}
 
 
+
 \section{Biased and Unbiased Variance Estimator}
 Consider the expected value of the $S^2$ - expectation is applied to 
 \ref{biased_variance_estimator_decomposition}:
@@ -67,6 +70,29 @@ Unbiased estimator of the variance is therefore given by:
 \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2
 \end{equation*}
 
+
+
+\section{Derivation of t-Student Distribution p.d.f.}
+\section{Derivation of F-Snedecor Distribution p.d.f.}
+
+
+
+\section{Definition of Binomial Series}
+The familiar binomial formula:
+\begin{equation*}
+(x+y)^2 = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^{k}
+\end{equation*}
+
+with $n \in \mathbb{N}$ is used to generalize to arbitrary 
+real exponent $\alpha$ thus:
+
+\begin{equation}
+(1 + x)^{\alpha} = \sum_{k=0}^{\infty}
+\end{equation}
+
+
+
+\section{Application of Binomial Series to Fractional Differencing}
 
 
 \bibliography{tsa_bibliography}
