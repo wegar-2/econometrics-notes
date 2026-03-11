@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+
+%%\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+
+
+\begin{document}
+
+\title{Econometrics Notes IV: Binomial Series and Fractional Differencing}
+\author{Artur Wegrzyn}
+\maketitle
+
+\abstract{This note introduces binomial series and mentions how it is used for fractional differencing in time series analysis. }
+
+
+\tableofcontents
+
+\section{Definition of Binomial Series}
+The familiar binomial formula:
+\begin{equation*}
+(x+y)^n = \sum_{k=0}^{n} \binom{n}{k} x^{n-k} y^{k}
+\end{equation*}
+
+with $n \in \mathbb{N}$ is generalized to arbitrary 
+real exponent $\alpha$ in the following manner:
+
+\begin{equation}
+(1 + x)^{\alpha} = \sum_{k=0}^{\infty} \binom{\alpha}{k} x^k
+\end{equation}
+
+This begs the question of how to define the binomial coefficient 
+$\binom{\alpha}{k}$ for fractional $\alpha$. \\
+\indent Consider first the formula for binomial coefficient:
+
+\begin{eqnarray*}
+\binom{n}{k} &=& \frac{n!}{k!(n-k!)} = \frac{n(n-1)\dots (n-k+1)}{k!} = \frac{n^{\underline{k}}}{k!}
+\end{eqnarray*}
+
+where falling factorial notation $x^{\underline{n}}$ is used:
+
+\begin{equation*}
+x^{\underline{n}} = \prod_{k=1}^{n} x - k + 1
+\end{equation*}
+
+Hence, the generalized coefficient is defined thus:
+\begin{equation*}
+\binom{\alpha}{k} = 
+\frac{\alpha^{\underline{k}}}{k!} = 
+\frac{ \alpha (\alpha - 1) \dots (\alpha - k + 1) }{k!}
+\end{equation*}
+
+
+\section{Application of Binomial Series to Fractional Differencing}
+
+\bibliography{tsa_bibliography}
+\bibliographystyle{ieeetr}
+
+\end{document}
