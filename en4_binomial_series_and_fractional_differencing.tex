@@ -12,7 +12,7 @@
 \author{Artur Wegrzyn}
 \maketitle
 
-\abstract{This note introduces binomial series and mentions how it is used for fractional differencing in time series analysis. }
+\abstract{This note introduces binomial series and briefly explains how it is used for fractional differencing in time series analysis. }
 
 
 \tableofcontents
@@ -39,10 +39,20 @@ $\binom{\alpha}{k}$ for fractional $\alpha$. \\
 \end{eqnarray*}
 
 where falling factorial notation $x^{\underline{n}}$ is used:
-
 \begin{equation*}
 x^{\underline{n}} = \prod_{k=1}^{n} x - k + 1
 \end{equation*}
+
+Observe that for $n=0$ this yields:
+\begin{equation*}
+x^{\underline{0}} = \prod_{k=1}^{0}x - k + 1 = 1
+\end{equation*}
+since value of empty product is one by definition. For $n=0$ and $n=1$ we get:
+\begin{eqnarray*}
+x^{\underline{1}} &=& x \\
+x^{\underline{2}} &=& x (x-1)
+\end{eqnarray*}
+ 
 
 Hence, the generalized coefficient is defined thus:
 \begin{equation*}
@@ -51,8 +61,40 @@ Hence, the generalized coefficient is defined thus:
 \frac{ \alpha (\alpha - 1) \dots (\alpha - k + 1) }{k!}
 \end{equation*}
 
+For later reference, the formulae for generalized binomial coefficient for $k = 0, 1, 2, 3$ are:
+\begin{eqnarray*}
+\binom{\alpha}{0} &=& \frac{\alpha^{\underline{0}}}{0!} = \frac{1}{1} = 1 \\
+\binom{\alpha}{1} &=& \frac{\alpha^{\underline{1}}}{1!} = \frac{\alpha}{1} = \alpha \\
+\binom{\alpha}{2} &=& \frac{\alpha^{\underline{2}}}{2!} = \frac{\alpha(\alpha - 1)}{2} \\
+\binom{\alpha}{3} &=& \frac{\alpha^{\underline{3}}}{3!} = \frac{\alpha(\alpha - 1)(\alpha-2)}{6}
+\end{eqnarray*}
 
-\section{Application of Binomial Series to Fractional Differencing}
+
+\section{Application to Fractional Differencing}
+Consider time series $\{ y_t \}_{t \in T}$. The usual first-order differencing is:
+
+\begin{equation*}
+\Delta y_t = y_t - y_{t-1} = y_t - L y_t = (1-L) y_t
+\end{equation*}
+
+this is generalized to fractional $d$:
+
+\begin{equation*}
+\Delta^{d}y_t = (1-L)^d y_t
+\end{equation*}
+
+Expanding right-hand side using binomial series formula:
+\begin{equation*}
+(1-L)^d y_t = \sum_{k=0}^{\infty} \binom{d}{k} (-1)^k L^k
+\end{equation*}
+
+Writing out first few elements of the series:
+\begin{equation*}
+(1-L)^d y_t = 1 - d y_{t-1} - \frac{1}{2}d(1-d)y_{t-2} - \frac{1}{6}(1-d)(2-d)y_{t-3} - \cdots
+\end{equation*}
+
+
+The idea of fractional differencing is discussed more thoroughly in \cite{fractional_differencing_hosking}. Of particular relevance is disussion in chapter 5 of \cite{fuller_intro_tsa} on applications of fractional differencing to analysis of financial time series.
 
 \bibliography{tsa_bibliography}
 \bibliographystyle{ieeetr}
