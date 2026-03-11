@@ -24,8 +24,21 @@ Sample $X_1, X_2, \dots, X_n$ is drawn independently from a distribution that
 has finite mean and variance, i.e.:
 \begin{eqnarray*}
 X_i &\sim & i.i.d. \\
-E(X_i) &=& E(X) = \mu < \infty \\
-Var(X_i) &=& Var(X) < \infty
+E(X_i) &=& E(X) = \mu = \mu_X < \infty \\
+Var(X_i) &=& Var(X) = \sigma^2 = \sigma^2_X < \infty
+\end{eqnarray*}
+
+Where two-dimensional random variables are discussed, sample 
+$\{ (X_1 ,Y_1), (X_2, Y_2), ..., (X_n, Y_n) \}$ is assumed to be drawn independently 
+and the following assumptions are made:
+
+\begin{eqnarray*}
+(X_i, Y_i) &\sim & i.i.d. \\
+E(X_i) &=& \mu_X < \infty \\
+E(Y_i) &=& \mu_Y < \infty \\
+Var(X_i) &=& = \sigma^2_X < \infty \\
+Var(Y_i) &=& = \sigma^2_Y < \infty \\ 
+Cov(X_i, Y_j) &=& \sigma_{ij} < \infty 
 \end{eqnarray*}
 
 
@@ -71,9 +84,16 @@ Unbiased estimator of the variance is therefore given by:
 \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2
 \end{equation*}
 
+\section{Biased and Unbiased Covariance Estimator}
+Consider, in turn the following sample covariance:
+\begin{equation*}
+\hat{\sigma}_{ij} = \frac{1}{n} \sum_{i=1}^{n}X_i Y_i - \overline{X} \cdot \overline{Y}
+\end{equation*}
 
+\section{Change of Variables for p.d.f.s of Two Random Variables}
 \section{Derivation of t-Student Distribution p.d.f.}
 \section{Derivation of F-Snedecor Distribution p.d.f.}
+
 
 \bibliography{tsa_bibliography}
 \bibliographystyle{ieeetr}
