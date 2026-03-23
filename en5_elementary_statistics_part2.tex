@@ -12,17 +12,12 @@
 \author{Artur Wegrzyn}
 \maketitle
 
-\abstract{This note presents strongly simplified derivation of formula for change of variables for the case of two-dimensional random variable. }
+In this note, a strongly simplified derivation of formula for change of variables for the case of two-dimensional random variable is given.
+Slightly more formally: formula for PDF of a two-dimensional random variable $(U, V)$ which is obtained from two-dimensional random variable 
+$(X, Y)$ by means of a sufficiently regular transormation is searched for. \\
+\\ \indent It cannot be stressed enough that this is \textbf{not} a strict proof of the result - rather: a motivation thereof under generous assumptions (which are for the most part sufficient for the purposes occurring in these notes).
 
-\tableofcontents
-
-
-\section{Change of Variables for PDF of Two-Dimensional Variables}
-In this section, a heuristic motivation of a formula for PDF of a two-dimensional random variable $(U, V)$ which is obtained from two-dimensional random variable 
-$(X, Y)$ by means of a sufficiently regular transormation. 
-It cannot be stressed enough, that this is \textbf{not} a strict proof of the result - rather: a motivation thereof under generous assumptions (which are for the most part sufficent for the purpose of these notes).
-
-The CDF of a two-dimensional, continuous random variable $(X, Y)$ is:
+Let the CDF of a two-dimensional, continuous random variable $(X, Y)$ be:
 \begin{equation*}
 F_{X, Y}(x, y) = P(X \leq x, Y \leq y) = 
 \int_{-\infty}^{y} \int_{-\infty}^{x} f_{X, Y}(s, t) ds dt 
@@ -67,7 +62,6 @@ v(x, y) \leq v
 \end{equation*} 
 
 
-
 Assuming sufficient regulatrity conditions one has:
 
 \begin{equation*}
@@ -92,6 +86,13 @@ Jacobian determinant of the transformation is:
 Now, consider probability of $(X, Y)$ falling within region defined by inequalities
 $x < X \leq x + dx$ and  $d < Y \leq y + dy$:
 
+Denote that region $dA$:
+\begin{equation*}
+dA = \{ 
+(\xi, \upsilon): x < \xi \leq x + dx, y < \upsilon \leq y + dy
+\}
+\end{equation*}
+
 \begin{equation*}
 P(x < X \leq x + dx, y < Y \leq y + dy) = f_{X, Y}(x, y) dxdy
 \end{equation*}
@@ -108,8 +109,13 @@ v(x, y) < v \leq v(x + dx, y + dy)
 \right\}
 \end{equation*}
 
+In this setting, the following statement holds:
+\begin{equation*}
+(x, y) \in dA \Longleftrightarrow (u, v) \in dS
+\end{equation*}
 
-Then, letting $\vec{a}$ stand for the vector representing shift on the $(U, V)$
+
+Let $\vec{a}$ stand for the vector representing shift on the $(U, V)$
 plane due to change of $X$ by $dx$ and 
 letting $\vec{b}$ stand for the vector representing shift on the $(U, V)$
 plane due to change of $Y$ by $dy$ we can write:
@@ -141,7 +147,7 @@ components of these two rows as columns or rows, we obtain:
 \frac{\partial u}{\partial x} & \frac{\partial v}{\partial x} \\
 \frac{\partial u}{\partial y} & \frac{\partial v}{\partial y}
 \end{vmatrix} dx dy =
-\frac{D(u, v)}{D(x, y)}
+\frac{D(u, v)}{D(x, y)}dxdy
 \end{equation*}
 Now, consider the following probability of the following event:
 \begin{equation*}
@@ -172,90 +178,5 @@ F_{U, V}(u_0, v_0) &=& P(U \leq u_0, V \leq v_0) \\
 \frac{D(x, y)}{D(u, v)} du dv
 \end{eqnarray*}
 
-\section{$\chi^2$ Distribution}
-In this and subsequent section we consider a sample $X_1, X_2, \dots, X_n$ 
-that is drawn independently from a normal 
-distribution with mean $\mu$ and variance $\sigma^2$:
-\begin{equation*}
-X_i \overset{\text{i.i.d.}}{\sim} N(\mu, \sigma^2)
-\end{equation*}
-
-
-\subsection{Fisher's Theorem}
-In this and subsequent section use is made of the Fisher's theorem that states 
-that given the sample discussed, the sample mean and sample variance are independent 
-random variables. I.e. given:
-\begin{equation*}
-\overline{X} = \frac{1}{n} \sum_{i=1}^{n} X_i
-\end{equation*}
-
-and:
-\begin{equation*}
-\tilde{S}^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2
-\end{equation*}
-
-we have:
-\begin{equation*}
-\overline{X} \perp\!\!\!\perp \tilde{S}^2
-\end{equation*}
-
-Proof of this theorem will be given in a separate note. For now, note that the symbol 
-$\perp\!\!\!\perp$ is commonly used to denote independence of random variables. Also, 
-recall that in case of normal distriubtion independence and orthogonality 
-are equivalent - this will be a topic of yet separate note.
-
-
-\section{Gamma Distribution}
-Let $Y_1, Y_2, \dots, Y_n$ be a sample drawn indepentently from an exponential 
-distribution with expected value $1 / \lambda$:
-
-\section{Square of Standard Normal Distribution}
-Suppose that $U$ follows standard normal distribution:
-\begin{equation*}
-U \sim N(0, 1)
-\end{equation*}
-
-Consider $Z = U^2$. Then:
-\begin{equation*}
-P(Z \leq z) = P(U^2 \leq z) = P(-\sqrt{z} < U \leq \sqrt{z})
-\end{equation*}
-
-Hence:
-\begin{equation*}
-f_{Z}(z) = \frac{dF_{Z}(z)}{dz} = \frac{d}{dz} P(-\sqrt{z} < U \leq \sqrt{z})
-\end{equation*}
-
-A little bit of algebra yields:
-\begin{equation*}
-f_{Z}(z) = 
-\end{equation*}
-
-
-
-\subsection{Statistical Motivation}
-Given the sample, consider the biased variance estimator:
-\begin{equation*}
-S_{XY} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2 
-\end{equation*}
-
-The aim is to find its distribution. As previously proved, this estimator can be rewritten as:
-\begin{equation*}
-S_{XY} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \mu)^2 - (\overline{X} - \mu)^2
-\end{equation*}
-
-
-\subsection{Derivation of PDF}
-
-\section{Derivation of t-Student Distribution PDF}
-\subsection{t-Student Distribution - Statistical Motivation}
-
-\subsection{Derivation of the PDF}
-
-\section{Derivation of F-Snedecor Distribution PDF}
-\subsection{F-Snedecor Distribution - Statistical Motivation}
-\subsection{Derivation of the PDF}
-
-\bibliography{tsa_bibliography}
-\bibliographystyle{ieeetr}
 
 \end{document}
