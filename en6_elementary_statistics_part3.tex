@@ -1,0 +1,106 @@
+\documentclass[12pt]{article}
+
+%%\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{url}
+
+
+\begin{document}
+
+\title{Econometrics Notes VI: Elementary Statistics - Part 3: Distributions - Exponential, Gamma, $\chi^2$}
+\author{Artur Wegrzyn}
+\maketitle
+
+\abstract{This note presents basic results concerning distributions that will show up frequently in later considerations: exponential, gamma and $\chi^2$. }
+
+\tableofcontents
+
+
+\section{$\chi^2$ Distribution}
+In this and subsequent section we consider a sample $X_1, X_2, \dots, X_n$ 
+that is drawn independently from a normal 
+distribution with mean $\mu$ and variance $\sigma^2$:
+\begin{equation*}
+X_i \overset{\text{i.i.d.}}{\sim} N(\mu, \sigma^2)
+\end{equation*}
+
+
+\subsection{Fisher's Theorem}
+In this and subsequent section use is made of the Fisher's theorem that states 
+that given the sample discussed, the sample mean and sample variance are independent 
+random variables. I.e. given:
+\begin{equation*}
+\overline{X} = \frac{1}{n} \sum_{i=1}^{n} X_i
+\end{equation*}
+
+and:
+\begin{equation*}
+\tilde{S}^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2
+\end{equation*}
+
+we have:
+\begin{equation*}
+\overline{X} \perp\!\!\!\perp \tilde{S}^2
+\end{equation*}
+
+Proof of this theorem will be given in a separate note. For now, note that the symbol 
+$\perp\!\!\!\perp$ is commonly used to denote independence of random variables. Also, 
+recall that in case of normal distriubtion independence and orthogonality 
+are equivalent - this will be a topic of yet separate note.
+
+
+\section{Gamma Distribution}
+Let $Y_1, Y_2, \dots, Y_n$ be a sample drawn indepentently from an exponential 
+distribution with expected value $1 / \lambda$:
+
+\section{Square of Standard Normal Distribution}
+Suppose that $U$ follows standard normal distribution:
+\begin{equation*}
+U \sim N(0, 1)
+\end{equation*}
+
+Consider $Z = U^2$. Then:
+\begin{equation*}
+P(Z \leq z) = P(U^2 \leq z) = P(-\sqrt{z} < U \leq \sqrt{z})
+\end{equation*}
+
+Hence:
+\begin{equation*}
+f_{Z}(z) = \frac{dF_{Z}(z)}{dz} = \frac{d}{dz} P(-\sqrt{z} < U \leq \sqrt{z})
+\end{equation*}
+
+A little bit of algebra yields:
+\begin{equation*}
+f_{Z}(z) = 
+\end{equation*}
+
+
+
+\subsection{Statistical Motivation}
+Given the sample, consider the biased variance estimator:
+\begin{equation*}
+S_{XY} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2 
+\end{equation*}
+
+The aim is to find its distribution. As previously proved, this estimator can be rewritten as:
+\begin{equation*}
+S_{XY} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \mu)^2 - (\overline{X} - \mu)^2
+\end{equation*}
+
+
+\subsection{Derivation of PDF}
+
+\section{Derivation of t-Student Distribution PDF}
+\subsection{t-Student Distribution - Statistical Motivation}
+
+\subsection{Derivation of the PDF}
+
+\section{Derivation of F-Snedecor Distribution PDF}
+\subsection{F-Snedecor Distribution - Statistical Motivation}
+\subsection{Derivation of the PDF}
+
+\bibliography{tsa_bibliography}
+\bibliographystyle{ieeetr}
+
+\end{document}
