@@ -5,8 +5,8 @@ Self-contained notes on select topics in econometrics.
 These are intended to be notes to self - use at your own risk.
 
 ### Contents
-* [EN I: Simple OLS Review of Estimators](./ec1_simple_reg_ols.pdf)
-* [EN II: AR(1) Process: Conditional ML Estimation and Properties](./ec2_ar1_cond_ml_estimation_and_properties.pdf)
+* [EN I: Simple OLS Review of Estimators](./en1_simple_reg_ols.pdf)
+* [EN II: AR(1) Process: Conditional ML Estimation and Properties](./en2_ar1_cond_ml_estimation_and_properties.pdf)
 * [EN III: Binomial Series and Fractional Differencing](./en3_binomial_series_and_fractional_differencing.pdf)
 * [EN IV: Elementary Statistics - Part 1: Variance and Covariance Results](./en4_elementary_statistics_part1.pdf) - biased and unbiased 
 variance and covariance estimators, basic properties thereof
