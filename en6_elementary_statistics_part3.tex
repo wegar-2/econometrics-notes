@@ -1,6 +1,8 @@
 \documentclass[12pt]{article}
 
 %%\usepackage[english]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[polish]{babel}
 \usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{url}
@@ -8,7 +10,7 @@
 
 \begin{document}
 
-\title{Econometrics Notes VI: Elementary Statistics - Part 3: Distributions - Exponential, Gamma, $\chi^2$}
+\title{Econometrics Notes VI: Elementary Statistics - Part 3: Distributions - Exponential, \\ Gamma, $\chi^2$}
 \author{Artur Wegrzyn}
 \maketitle
 
@@ -17,42 +19,44 @@
 \tableofcontents
 
 
-\section{$\chi^2$ Distribution}
-In this and subsequent section we consider a sample $X_1, X_2, \dots, X_n$ 
-that is drawn independently from a normal 
-distribution with mean $\mu$ and variance $\sigma^2$:
+\section{Characteristic Function Uniquely Determines Probability Distribution}
+In this note the fact that characteristic function uniquely determines probability distribution is used. 
+For proof and comprehensive discussion of this theorem cf.:
+\begin{itemize}
+\item in English: \cite{feller_probability_vol2} - chapter XV: \textit{Characteristic Functions}
+\item in Polish: \cite{jakubowski_sztencel} - chapter 9: \textit{Funkcje charakterystyczne}
+\end{itemize}
+In these notes, however, I will work with moment-generating functions instead of characteristic functions 
+for the sake of clarity.
+
+\section{Exponential Distribution}
+Random variable $X$ follows exponential distribution with rate\footnote{Rate parameter is inverse of scale 
+parameter. Recall that $s$ is a scale parameter if $F(x; s, \theta) = F(x/s; 1, \theta)$} parameter $\lambda$
+if its pdf is:
 \begin{equation*}
-X_i \overset{\text{i.i.d.}}{\sim} N(\mu, \sigma^2)
+f_{X}(x) = \lambda e^{-\lambda x}
 \end{equation*}
-
-
-\subsection{Fisher's Theorem}
-In this and subsequent section use is made of the Fisher's theorem that states 
-that given the sample discussed, the sample mean and sample variance are independent 
-random variables. I.e. given:
+MGF of $X$ is:
 \begin{equation*}
-\overline{X} = \frac{1}{n} \sum_{i=1}^{n} X_i
+M_{X}(t) = E(e^{tX}) = 
 \end{equation*}
-
-and:
+The fact that $X$ is exponentially distributed with scale parameter lambda is denoted:
 \begin{equation*}
-\tilde{S}^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \overline{X})^2
+X \sim Exp(1/\lambda)
 \end{equation*}
-
-we have:
-\begin{equation*}
-\overline{X} \perp\!\!\!\perp \tilde{S}^2
-\end{equation*}
-
-Proof of this theorem will be given in a separate note. For now, note that the symbol 
-$\perp\!\!\!\perp$ is commonly used to denote independence of random variables. Also, 
-recall that in case of normal distriubtion independence and orthogonality 
-are equivalent - this will be a topic of yet separate note.
 
 
 \section{Gamma Distribution}
-Let $Y_1, Y_2, \dots, Y_n$ be a sample drawn indepentently from an exponential 
-distribution with expected value $1 / \lambda$:
+
+\subsection{Sum of $p$ Exponential Random Variables}
+Let $X_1, X_2, \dots, Y_p$ be a $p$-element sample drawn indepentently from an exponential 
+distribution with expected value $1 / \lambda$ i.e.:
+\begin{equation*}
+X_i \sim Exp(1/\lambda)
+\end{equation*}
+
+\subsection{•}
+
 
 \section{Square of Standard Normal Distribution}
 Suppose that $U$ follows standard normal distribution:
@@ -76,31 +80,16 @@ f_{Z}(z) =
 \end{equation*}
 
 
-
-\subsection{Statistical Motivation}
-Given the sample, consider the biased variance estimator:
+\section{$\chi^2$ Distribution}
+In this and subsequent section we consider a sample $X_1, X_2, \dots, X_n$ 
+that is drawn independently from a normal 
+distribution with mean $\mu$ and variance $\sigma^2$:
 \begin{equation*}
-S_{XY} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \overline{X})^2 
+X_i \overset{\text{i.i.d.}}{\sim} N(\mu, \sigma^2)
 \end{equation*}
-
-The aim is to find its distribution. As previously proved, this estimator can be rewritten as:
-\begin{equation*}
-S_{XY} = \frac{1}{n} \sum_{i=1}^{n} (X_i - \mu)^2 - (\overline{X} - \mu)^2
-\end{equation*}
-
-
-\subsection{Derivation of PDF}
-
-\section{Derivation of t-Student Distribution PDF}
-\subsection{t-Student Distribution - Statistical Motivation}
-
-\subsection{Derivation of the PDF}
-
-\section{Derivation of F-Snedecor Distribution PDF}
-\subsection{F-Snedecor Distribution - Statistical Motivation}
-\subsection{Derivation of the PDF}
 
 \bibliography{tsa_bibliography}
 \bibliographystyle{ieeetr}
+
 
 \end{document}
